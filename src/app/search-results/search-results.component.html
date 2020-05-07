@@ -1,54 +1,35 @@
 <div id="header">
-    <div id="topbar">
-        <app-search-box> </app-search-box>
-    </div>
-    <div id="optionsbar">
-        <ul id="optionsmenu1">
-            <li id="optionsmenuactive">All</li>
-            <li>News</li>
-            <li>Videos</li>
-            <li>Images</li>
-            <li>Maps</li>
-            <li>More</li>
-        </ul>
-
-        <ul id="optionsmenu2">
-            <li>Settings</li>
-            <li>Tools</li>
-        </ul>
-    </div>
+  <div id="topbar">
+    <app-search-box> </app-search-box>
+  </div>
+  <!--Profile Page Secondry NavBar [Taps, Follow & Following Buttons, DropDownMenu -->
+  <div class="Profile-NavBar">
+    <ul id="Taps">
+      <li> <div id ="Tap" routerLinkActive="active" [routerLink]="['all']"><a > ALL </a> </div> </li>
+      <li> <div id ="Tap" routerLinkActive="active" [routerLink]="['images']"><a > IMAGES </a> </div></li>
+    </ul>
+  </div>
 </div>
 <div id="searchresultsarea">
-    <div class="searchresult" *ngFor="let page of SearchResults | paginate: paginationConfig">
-        <h2> <a href = "{{page.url}}" > {{page.title}} </a></h2>
-        <a id ="url"> {{page.url}} </a>
-        <p> {{page.summary}} </p>
-    </div>
-    <div style = "margin-top: 30px;"></div>
-    <pagination-controls [maxSize]="maxSize" [directionLinks]="directionLinks" [autoHide]="autoHide"
-        [responsive]="responsive" [previousLabel]="labels.previousLabel" [nextLabel]="labels.nextLabel"
-        [screenReaderPaginationLabel]="labels.screenReaderPaginationLabel"
-        [screenReaderPageLabel]="labels.screenReaderPageLabel"
-        [screenReaderCurrentLabel]="labels.screenReaderCurrentLabel" (pageChange)="onPageChange($event)">
-    </pagination-controls>
+  <router-outlet>   </router-outlet>
 </div>
 <div class="line"></div>
 <div id="footer">
-    <div class="container-fluid">
-        <div class="row">
-          <div class="col-md-5 col-sm-6 col-xs-12">
-            <p class="copyright-text">Copyright &copy; 2020 All Rights Reserved.  
-            </p>
-          </div>
-
-          <div class="col-md-7 col-sm-6 col-xs-12">
-            <ul class="social-icons">
-              <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
-              <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
-              <li><a class="dribbble" href="#"><i class="fa fa-dribbble"></i></a></li>
-              <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>   
-            </ul>
-          </div>
-        </div>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-5 col-sm-6 col-xs-12">
+        <p class="copyright-text">Copyright &copy; 2020 All Rights Reserved.
+        </p>
       </div>
+
+      <div class="col-md-7 col-sm-6 col-xs-12">
+        <ul class="social-icons">
+          <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+          <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+          <li><a class="dribbble" href="#"><i class="fa fa-dribbble"></i></a></li>
+          <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </div>

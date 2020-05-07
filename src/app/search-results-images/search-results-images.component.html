@@ -1,0 +1,24 @@
+<!-- Page Content -->
+<div class="container-fluid page-top">
+    <div class="row">
+        <div class="col-lg-3 col-md-4 col-xs-6 thumb" *ngFor="let image of SearchResultsImages | paginate: paginationConfig; let i = index">
+            <a href="{{image.siteUrl}}">
+                <img src= "{{image.imageUrl}}"
+                    class="zoom img-fluid " id = "{{i}}" alt=""
+                    (mouseenter) ="imageZoomIn($event)"  (mouseleave) ="imageZoomOut($event)">
+            </a>
+        </div>
+    </div>
+</div>
+
+<pagination-controls [maxSize]="maxSize" 
+                    [directionLinks]= "directionLinks" 
+                    [autoHide]="autoHide"
+                    [responsive]="responsive" 
+                    [previousLabel]="labels.previousLabel" 
+                    [nextLabel]="labels.nextLabel"
+                    [screenReaderPaginationLabel]="labels.screenReaderPaginationLabel"
+                    [screenReaderPageLabel]="labels.screenReaderPageLabel" 
+                    [screenReaderCurrentLabel]="labels.screenReaderCurrentLabel"
+                    (pageChange)="onPageChange($event)">
+</pagination-controls>

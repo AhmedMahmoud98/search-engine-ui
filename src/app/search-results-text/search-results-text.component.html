@@ -1,0 +1,17 @@
+  <div class="searchresult" *ngFor="let page of SearchResultsText | paginate: paginationConfig">
+    <h2> <a href="{{page.url}}"> {{page.title}} </a></h2>
+    <a id="url"> {{page.url}} </a>
+    <p> {{page.summary}} </p>
+  </div>
+  <div style="margin-top: 30px;"></div>
+  <pagination-controls  [maxSize]="maxSize" 
+                        [directionLinks]= "directionLinks" 
+                        [autoHide]="autoHide"
+                        [responsive]="responsive" 
+                        [previousLabel]="labels.previousLabel" 
+                        [nextLabel]="labels.nextLabel"
+                        [screenReaderPaginationLabel]="labels.screenReaderPaginationLabel"
+                        [screenReaderPageLabel]="labels.screenReaderPageLabel" 
+                        [screenReaderCurrentLabel]="labels.screenReaderCurrentLabel"
+                        (pageChange)="onPageChange($event)">
+  </pagination-controls>

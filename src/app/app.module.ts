@@ -9,13 +9,18 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from '../app/services/in-memory-data-service.service';
 import { HomePageComponent } from './home-page/home-page.component';
 import { SearchBoxComponent } from './search-box/search-box.component';
+import { RouterModule } from '@angular/router';
+import { SearchResultsTextComponent } from './search-results-text/search-results-text.component';
+import { SearchResultsImagesComponent } from './search-results-images/search-results-images.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SearchResultsComponent,
     HomePageComponent,
-    SearchBoxComponent
+    SearchBoxComponent,
+    SearchResultsTextComponent,
+    SearchResultsImagesComponent
   ],
   imports: [
     BrowserModule,
@@ -23,6 +28,13 @@ import { SearchBoxComponent } from './search-box/search-box.component';
     NgxPaginationModule,
     HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, { dataEncapsulation: false }),
     HttpClientModule,
+    RouterModule.forChild([
+      { path: 'search/:search-query', component:  SearchResultsComponent,
+      children: [
+        {path: 'all', component: SearchResultsTextComponent},
+        {path: 'images', component: SearchResultsImagesComponent},
+      ]} 
+    ])
   ],
   providers: [],
   bootstrap: [AppComponent]

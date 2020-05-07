@@ -20,9 +20,9 @@
 </div>
 <div id="searchresultsarea">
     <div class="searchresult" *ngFor="let page of SearchResults | paginate: paginationConfig">
-        <h2>{{page.title}}</h2>
-        <a>{{page.url}}</a>
-        <p>{{page.summary}}</p>
+        <h2> <a href = "{{page.url}}" > {{page.title}} </a></h2>
+        <a id ="url"> {{page.url}} </a>
+        <p> {{page.summary}} </p>
     </div>
     <div style = "margin-top: 30px;"></div>
     <pagination-controls [maxSize]="maxSize" [directionLinks]="directionLinks" [autoHide]="autoHide"

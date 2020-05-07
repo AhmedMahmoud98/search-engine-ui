@@ -7,11 +7,15 @@ import { SearchResultsComponent } from './search-results/search-results.componen
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from '../app/services/in-memory-data-service.service';
+import { HomePageComponent } from './home-page/home-page.component';
+import { SearchBoxComponent } from './search-box/search-box.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SearchResultsComponent
+    SearchResultsComponent,
+    HomePageComponent,
+    SearchBoxComponent
   ],
   imports: [
     BrowserModule,

@@ -1,17 +1,6 @@
 <div id="header">
     <div id="topbar">
-        <img class="Logo" 
-            src="./assets/logo2.png"
-            alt="Profile Picture" 
-            id="searchbarimage"/>
-        <!--(click) = 'openHomePage()'-->
-        <div id="searchbar" type="checkbox">
-            <input id="searchbartext" type="text"/>
-            <i class="fa fa-microphone"  id = "micIcon" style="font-size: 1.5em; color: rgb(46, 80, 173);"></i>
-            <i class="fa fa-search" id = "searchIcon" style="font-size: 1.3em; color: rgb(46, 80, 173);"></i>
-        </div>
-
-        <div id="boxesicon"></div>
+        <app-search-box> </app-search-box>
     </div>
     <div id="optionsbar">
         <ul id="optionsmenu1">
@@ -45,14 +34,14 @@
 </div>
 <div class="line"></div>
 <div id="footer">
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
-          <div class="col-md-8 col-sm-6 col-xs-12">
+          <div class="col-md-5 col-sm-6 col-xs-12">
             <p class="copyright-text">Copyright &copy; 2020 All Rights Reserved.  
             </p>
           </div>
 
-          <div class="col-md-4 col-sm-6 col-xs-12">
+          <div class="col-md-7 col-sm-6 col-xs-12">
             <ul class="social-icons">
               <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
               <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>

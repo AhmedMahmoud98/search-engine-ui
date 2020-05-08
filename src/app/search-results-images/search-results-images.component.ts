@@ -95,14 +95,14 @@ export class SearchResultsImagesComponent implements OnInit {
   {
 
     siteUrl: "https://en.wikipedia.org/wiki/Lock_(computer_science)",
-    imageUrl: "https://images.pexels.com/photos/62307/air-bubbles-diving-underwater-blow-62307.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    imageUrl: "https://i.picsum.photos/id/448/200/300.jpg",
     caption: "Hello Image",
   },
 
   {
 
     siteUrl: "https://en.wikipedia.org/wiki/Lock_(computer_science)",
-    imageUrl: "https://images.pexels.com/photos/62307/air-bubbles-diving-underwater-blow-62307.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    imageUrl: "https://i.picsum.photos/id/155/200/300.jpg",
     caption: "Hello Image",
   },
   {
@@ -161,7 +161,6 @@ export class SearchResultsImagesComponent implements OnInit {
   imageZoomIn(event)
   {
     var elementId = (event.target as Element).id;
-    console.log(elementId)
     var modal = document.getElementById(elementId);
     modal.classList.add('transition')
   }

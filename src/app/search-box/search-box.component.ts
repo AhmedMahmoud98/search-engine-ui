@@ -12,4 +12,10 @@ export class SearchBoxComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  record: boolean = false;
+  recordEvent() 
+  {
+      this.record = !this.record;    
+  }
+
 }

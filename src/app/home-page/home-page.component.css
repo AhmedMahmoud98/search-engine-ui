@@ -1,5 +1,5 @@
 .home-page {
-    background: url("../../assets/main2.jpg") no-repeat center center fixed;     
+    background: url("../../assets/main5.jpg") no-repeat center center fixed;     
     width: 100%;
     height: 100%;
 }
@@ -20,7 +20,7 @@
 
 .social-icons
 {
-  padding-left:600px;
+  padding-left:800px;
   margin-bottom:5px;
   margin-top:5px;
   list-style:none

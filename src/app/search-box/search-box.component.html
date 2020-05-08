@@ -3,7 +3,9 @@
     <!--(click) = 'openHomePage()'-->
     <div id="searchbar" type="checkbox">
         <input id="searchbartext" type="text" />
-        <i class="fa fa-microphone" id="micIcon" style="font-size: 1.5em; color: rgb(46, 80, 173);"></i>
+        <i  id="micIcon" (click)="recordEvent()"
+            [ngClass]= " record ?  'fa fa-stop' : 'fa fa-microphone'"                
+            Some content style ="font-size: 1.5em; color: rgb(46, 80, 173);"></i>
         <i class="fa fa-search" id="searchIcon" style="font-size: 1.3em; color: rgb(46, 80, 173);"></i>
     </div>
 </div>

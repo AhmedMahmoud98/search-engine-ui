@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomePageComponent implements OnInit {
 
-  selectedCountryCode = 'us';
+  selectedCountryCode = 'eg';
   countryCodes = ['us', 'lu', 'de', 'bs', 'br', 'pt'];
 
   changeSelectedCountryCode(value: string): void {

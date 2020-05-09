@@ -1,5 +1,13 @@
 <div class='container-fluid home-page'>
 
+  <span class="picker-wrapper">
+    <ngx-flag-picker
+        [selectedCountryCode]="selectedCountryCode"
+        [countryCodes]="countryCodes"
+        (changedCountryCode)="changeSelectedCountryCode($event)">
+      </ngx-flag-picker>
+    </span>
+
   <div id="search-box">
     <app-search-box> </app-search-box>
   </div>

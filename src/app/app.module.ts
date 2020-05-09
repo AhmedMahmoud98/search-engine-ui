@@ -12,6 +12,9 @@ import { SearchBoxComponent } from './search-box/search-box.component';
 import { RouterModule } from '@angular/router';
 import { SearchResultsTextComponent } from './search-results-text/search-results-text.component';
 import { SearchResultsImagesComponent } from './search-results-images/search-results-images.component';
+import { TrendsHistogramComponent } from './trends-histogram/trends-histogram.component'
+import { ChartsModule } from 'ng2-charts';
+import { NgxFlagPickerModule } from 'ngx-flag-picker';
 
 @NgModule({
   declarations: [
@@ -20,12 +23,15 @@ import { SearchResultsImagesComponent } from './search-results-images/search-res
     HomePageComponent,
     SearchBoxComponent,
     SearchResultsTextComponent,
-    SearchResultsImagesComponent
+    SearchResultsImagesComponent,
+    TrendsHistogramComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgxPaginationModule,
+    ChartsModule,
+    NgxFlagPickerModule,
     HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, { dataEncapsulation: false }),
     HttpClientModule,
     RouterModule.forChild([

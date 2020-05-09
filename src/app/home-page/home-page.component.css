@@ -4,11 +4,19 @@
     height: 100%;
 }
 
-  #search-box {
+.picker-wrapper
+{
+  margin-left: 20px;
+  width: 200px !important;
+}
+
+
+#search-box {
     padding: 350px 0;
     margin: auto; 
     width: 50%; 
 }
+
 
 .copyright-text
 {

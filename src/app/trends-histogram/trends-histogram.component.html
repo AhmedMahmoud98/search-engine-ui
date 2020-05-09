@@ -1,12 +1,28 @@
+<div class="container-fluid page">
+  <img class="Logo" src="./assets/logo3.png" 
+      alt="Profile Picture" id="searchbarimage" />
+  <div class = "chart-wrapper"> 
+    <canvas baseChart class = "chart-wrapper"
+      [datasets]="barChartData"
+      [colors]="barChartColors"
+      [labels]="barChartLabels"
+      [options]="barChartOptions"
+      [legend]="barChartLegend"
+      [chartType]="barChartType">
+    </canvas>
+  </div>
 
-    
-<div class="chart-wrapper">
-    <canvas baseChart 
-    [datasets]="barChartData"
-    [labels]="barChartLabels"
-    [options]="barChartOptions"
-    [plugins]="barChartPlugins"
-    [legend]="barChartLegend"
-    [chartType]="barChartType">
-  </canvas>
+   <!-- Navigation -->
+   <nav class="navbar fixed-bottom">
+    <div class="container">
+        <div class="col align-self-end">
+          <ul class="social-icons">
+            <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+            <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+            <li><a class="dribbble" href="#"><i class="fa fa-dribbble"></i></a></li>
+            <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
+          </ul>
+        </div>
+      </div>
+  </nav>
 </div>

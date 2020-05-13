@@ -1,5 +1,5 @@
 /**
- * Result : It represents a website page  
+ * Page : It represents a website page  
  * that retrieved from the back end
  */
 export interface Page {

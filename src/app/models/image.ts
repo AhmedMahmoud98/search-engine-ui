@@ -1,6 +1,6 @@
 /**
- * Result : It represents a website page  
- * that retrieved from the back end
+ * Image : It represents an Image with 
+ * its page that retrieved from the back end
  */
 export interface Image {
     /** The page title */

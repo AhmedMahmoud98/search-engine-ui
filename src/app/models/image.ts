@@ -7,6 +7,4 @@ export interface Image {
     siteUrl: string;
     /** The page URL */
     imageUrl: string;
-    /** The page summary */
-    caption: string;
 }

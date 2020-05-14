@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {  Router } from '@angular/router';
 
 @Component({
   selector: 'app-search-box',
@@ -7,15 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchBoxComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private router: Router) { }
+  
+  searchText: string;
+  record: boolean = false;
+  
   ngOnInit(): void {
   }
 
-  record: boolean = false;
+  
   recordEvent() 
   {
       this.record = !this.record;    
   }
 
+  search( ):void {
+    this.router.navigate(['/search', this.searchText]);        
+  }
 }

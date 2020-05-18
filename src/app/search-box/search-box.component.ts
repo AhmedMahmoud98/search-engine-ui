@@ -1,36 +1,38 @@
-import { Component, OnInit } from '@angular/core';
-import {  Router } from '@angular/router';
+import { Component, OnInit, OnChanges } from '@angular/core';
+import {  Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-search-box',
   templateUrl: './search-box.component.html',
   styleUrls: ['./search-box.component.css']
 })
-export class SearchBoxComponent implements OnInit {
+export class SearchBoxComponent implements OnInit{
 
-  constructor(private router: Router) { }
+  constructor(private route: ActivatedRoute, private router: Router) { }
   
   searchText: string;
-  record: boolean = false;
+  urlparam: string;
   allOrImage: boolean;
+  
   ngOnInit(): void {
+     this.route.queryParams.subscribe(
+       params =>{ this.searchText = params['query']
+        console.log(params["query"])
+      });
+      
     this.router.events.subscribe((event) => {
-    this.allOrImage = !this.router.url.includes('/images');
+      this.allOrImage = this.router.url.includes('/images');
     });
   }
 
   
-  recordEvent() 
-  {
-      this.record = !this.record;    
-  }
-
-  search( ):void {
+  search( ): void {
     let url = '/search/';
     if(this.allOrImage)
-      url += 'all';
-    else
       url += 'images';
+    else
+      url += 'all';
     this.router.navigate([url], {queryParams: { 'query':  this.searchText} });        
   }
+  
 }

@@ -20,6 +20,7 @@ import { AppComponent } from './app.component';
 import { SearchResultsComponent } from './search-results/search-results.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { SearchBoxComponent } from './search-box/search-box.component';
+import { VoiceRecognitionComponent } from './voice-recognition/voice-recognition.component';
 
 
 const routes: Routes = [{ path: '', component: HomePageComponent },
@@ -29,7 +30,8 @@ const routes: Routes = [{ path: '', component: HomePageComponent },
                               {path: 'images', component: SearchResultsImagesComponent},
                             ]
                         },
-                        {path:'trends' , component: TrendsHistogramComponent}
+                        {path:'trends' , component: TrendsHistogramComponent},
+                        {path:'voice' , component: VoiceRecognitionComponent}
                       ]; 
 
 @NgModule({
@@ -40,7 +42,8 @@ const routes: Routes = [{ path: '', component: HomePageComponent },
     SearchBoxComponent,
     SearchResultsTextComponent,
     SearchResultsImagesComponent,
-    TrendsHistogramComponent
+    TrendsHistogramComponent,
+    VoiceRecognitionComponent
   ],
   imports: [
     BrowserModule,

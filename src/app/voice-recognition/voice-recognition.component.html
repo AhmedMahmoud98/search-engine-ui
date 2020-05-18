@@ -1,0 +1,22 @@
+<div >
+        <i  id="micIcon" (click)="toggleVoiceRecognition()"
+            [ngClass]= " record ?  'fa fa-stop' : 'fa fa-microphone'"                
+            Some content style ="font-size: 1.5em; color: rgb(46, 80, 173);cursor: pointer;">
+        </i>
+</div>
+      <ng-template >
+        <ng-container >
+          <ng-container>
+           
+          </ng-container>
+          <ng-template #start>
+          </ng-template>
+        </ng-container>
+        <ng-template #failure>
+          <span>Didn’t catch that</span>
+        </ng-template>
+        <div>
+          <button (click)="closeVoiceRecognition()">Close</button>
+          <button (click)="startVoiceRecognition()">Restart</button>
+        </div>
+      </ng-template>

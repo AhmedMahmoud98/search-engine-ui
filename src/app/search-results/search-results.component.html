@@ -5,8 +5,8 @@
   <!--Profile Page Secondry NavBar [Taps, Follow & Following Buttons, DropDownMenu -->
   <div class="Profile-NavBar">
     <ul id="Taps">
-      <li> <div id ="Tap" routerLinkActive="active" [routerLink]="['all']"><a > ALL </a> </div> </li>
-      <li> <div id ="Tap" routerLinkActive="active" [routerLink]="['images']"><a > IMAGES </a> </div></li>
+      <li> <div id ="Tap" routerLinkActive="active" [routerLink]="['all']"  [queryParams]= "{ query: search } "> <a > ALL </a> </div> </li>
+      <li> <div id ="Tap" routerLinkActive="active" [routerLink]="['images']"  [queryParams]= "{ query: search } "><a > IMAGES </a> </div></li>
     </ul>
   </div>
 </div>

@@ -60,3 +60,7 @@
 #searchbar > input:focus {
     outline: none;
 }
+
+img{
+    cursor: pointer;
+}

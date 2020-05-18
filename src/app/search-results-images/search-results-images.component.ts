@@ -13,121 +13,121 @@ export class SearchResultsImagesComponent implements OnInit {
 
     siteUrl: "https://en.wikipedia.org/wiki/Lock_(computer_science)",
     imageUrl: "https://images.pexels.com/photos/62307/air-bubbles-diving-underwater-blow-62307.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-    caption: "Hello Image",
+    //caption: "Hello Image",
   },
   {
 
     siteUrl: "https://en.wikipedia.org/wiki/Lock_(computer_science)",
     imageUrl: "https://images.pexels.com/photos/38238/maldives-ile-beach-sun-38238.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-    caption: "Hello Image",
+    //caption: "Hello Image",
   },
   {
 
     siteUrl: "https://en.wikipedia.org/wiki/Lock_(computer_science)",
     imageUrl: "https://images.pexels.com/photos/38238/maldives-ile-beach-sun-38238.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-    caption: "Hello Image",
+    //caption: "Hello Image",
   },
   {
 
     siteUrl: "https://en.wikipedia.org/wiki/Lock_(computer_science)",
     imageUrl: "https://images.pexels.com/photos/38238/maldives-ile-beach-sun-38238.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-    caption: "Hello Image",
+    //caption: "Hello Image",
   },
   {
 
     siteUrl: "https://en.wikipedia.org/wiki/Lock_(computer_science)",
     imageUrl: "https://images.pexels.com/photos/62307/air-bubbles-diving-underwater-blow-62307.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-    caption: "Hello Image",
+    //caption: "Hello Image",
   },
   {
 
     siteUrl: "https://en.wikipedia.org/wiki/Lock_(computer_science)",
     imageUrl: "https://images.pexels.com/photos/62307/air-bubbles-diving-underwater-blow-62307.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-    caption: "Hello Image",
+    //caption: "Hello Image",
   },
   {
 
     siteUrl: "https://en.wikipedia.org/wiki/Lock_(computer_science)",
     imageUrl: "../../assets/main2.jpg",
-    caption: "Hello Image",
+    //caption: "Hello Image",
   },
   {
 
     siteUrl: "https://en.wikipedia.org/wiki/Lock_(computer_science)",
     imageUrl: "https://images.pexels.com/photos/62307/air-bubbles-diving-underwater-blow-62307.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-    caption: "Hello Image",
+    //caption: "Hello Image",
   }, {
 
     siteUrl: "https://en.wikipedia.org/wiki/Lock_(computer_science)",
     imageUrl: "https://images.pexels.com/photos/62307/air-bubbles-diving-underwater-blow-62307.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-    caption: "Hello Image",
+    //caption: "Hello Image",
   },
   {
 
     siteUrl: "https://en.wikipedia.org/wiki/Lock_(computer_science)",
     imageUrl: "https://images.pexels.com/photos/62307/air-bubbles-diving-underwater-blow-62307.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-    caption: "Hello Image",
+    //caption: "Hello Image",
   },
   {
 
     siteUrl: "https://en.wikipedia.org/wiki/Lock_(computer_science)",
     imageUrl: "https://images.pexels.com/photos/62307/air-bubbles-diving-underwater-blow-62307.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-    caption: "Hello Image",
+    //caption: "Hello Image",
   },
   {
 
     siteUrl: "https://en.wikipedia.org/wiki/Lock_(computer_science)",
     imageUrl: "https://images.pexels.com/photos/62307/air-bubbles-diving-underwater-blow-62307.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-    caption: "Hello Image",
+    //caption: "Hello Image",
   },
   {
 
     siteUrl: "https://en.wikipedia.org/wiki/Lock_(computer_science)",
     imageUrl: "https://images.pexels.com/photos/62307/air-bubbles-diving-underwater-blow-62307.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-    caption: "Hello Image",
+    //caption: "Hello Image",
   },
   {
 
     siteUrl: "https://en.wikipedia.org/wiki/Lock_(computer_science)",
     imageUrl: "https://images.pexels.com/photos/62307/air-bubbles-diving-underwater-blow-62307.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-    caption: "Hello Image",
+    //caption: "Hello Image",
   },
   {
 
     siteUrl: "https://en.wikipedia.org/wiki/Lock_(computer_science)",
     imageUrl: "https://i.picsum.photos/id/448/200/300.jpg",
-    caption: "Hello Image",
+    //caption: "Hello Image",
   },
 
   {
 
     siteUrl: "https://en.wikipedia.org/wiki/Lock_(computer_science)",
     imageUrl: "https://i.picsum.photos/id/155/200/300.jpg",
-    caption: "Hello Image",
+    //caption: "Hello Image",
   },
   {
 
     siteUrl: "https://en.wikipedia.org/wiki/Lock_(computer_science)",
     imageUrl: "https://images.pexels.com/photos/62307/air-bubbles-diving-underwater-blow-62307.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-    caption: "Hello Image",
+    //caption: "Hello Image",
   },
   {
 
     siteUrl: "https://en.wikipedia.org/wiki/Lock_(computer_science)",
     imageUrl: "https://images.pexels.com/photos/62307/air-bubbles-diving-underwater-blow-62307.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-    caption: "Hello Image",
+    //caption: "Hello Image",
   },
   {
 
     siteUrl: "https://en.wikipedia.org/wiki/Lock_(computer_science)",
     imageUrl: "https://images.pexels.com/photos/62307/air-bubbles-diving-underwater-blow-62307.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-    caption: "Hello Image",
+    //caption: "Hello Image",
   },
   {
 
     siteUrl: "https://en.wikipedia.org/wiki/Lock_(computer_science)",
     imageUrl: "https://images.pexels.com/photos/62307/air-bubbles-diving-underwater-blow-62307.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-    caption: "Hello Image",
+    //caption: "Hello Image",
   }]
 
   public maxSize: number = 7;

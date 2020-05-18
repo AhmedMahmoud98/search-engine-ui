@@ -23,12 +23,13 @@ import { SearchBoxComponent } from './search-box/search-box.component';
 
 
 const routes: Routes = [{ path: '', component: HomePageComponent },
-                        { path: 'search/:search-query', component:  SearchResultsComponent,
+                        { path: 'search', component:  SearchResultsComponent,
                             children: [
                               {path: 'all', component: SearchResultsTextComponent},
                               {path: 'images', component: SearchResultsImagesComponent},
                             ]
-                        }
+                        },
+                        {path:'trends' , component: TrendsHistogramComponent}
                       ]; 
 
 @NgModule({

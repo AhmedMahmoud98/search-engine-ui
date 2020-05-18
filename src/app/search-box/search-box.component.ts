@@ -12,8 +12,11 @@ export class SearchBoxComponent implements OnInit {
   
   searchText: string;
   record: boolean = false;
-  
+  allOrImage: boolean;
   ngOnInit(): void {
+    this.router.events.subscribe((event) => {
+    this.allOrImage = !this.router.url.includes('/images');
+    });
   }
 
   
@@ -23,6 +26,11 @@ export class SearchBoxComponent implements OnInit {
   }
 
   search( ):void {
-    this.router.navigate(['/search', this.searchText]);        
+    let url = '/search/';
+    if(this.allOrImage)
+      url += 'all';
+    else
+      url += 'images';
+    this.router.navigate([url], {queryParams: { 'query':  this.searchText} });        
   }
 }

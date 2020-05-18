@@ -1,5 +1,5 @@
 <div class="search-box">
-    <img class="Logo" src="./assets/logo3.png" alt="Profile Picture" id="searchbarimage" />
+    <img class="Logo" src="./assets/logo3.png" alt="Profile Picture" id="searchbarimage"  [routerLink]="['/']" />
     <div id="searchbar" type="checkbox">
         <input id="searchbartext" type="text"  [(ngModel)]="searchText" (keydown.enter)="search()" />
         <i  id="micIcon" (click)="recordEvent()"

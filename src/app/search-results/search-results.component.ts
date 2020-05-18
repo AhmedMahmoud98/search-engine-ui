@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 
 @Component({
@@ -9,9 +10,17 @@ import { Component, OnInit } from '@angular/core';
 
 export class SearchResultsComponent implements OnInit {
   
-  constructor() { } ;
+  search: string ;
+
+  constructor(private route: ActivatedRoute ,private router: Router) {
+    
+   } ;
     
   ngOnInit(): void {
+    this.route.queryParams.subscribe(
+      params => this.search = params['query']);
+    this.search = this.route.snapshot.queryParamMap.get('query');
+    
   }
 
 }

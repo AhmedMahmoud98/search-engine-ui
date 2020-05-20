@@ -1,5 +1,6 @@
 import { Component, OnInit, OnChanges } from '@angular/core';
 import {  Router, ActivatedRoute } from '@angular/router';
+import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-search-box',
@@ -8,11 +9,12 @@ import {  Router, ActivatedRoute } from '@angular/router';
 })
 export class SearchBoxComponent implements OnInit{
 
-  constructor(private route: ActivatedRoute, private router: Router) { }
+  constructor(private route: ActivatedRoute, private router: Router, private data: DataService) { }
   
   searchText: string;
   urlparam: string;
   allOrImage: boolean;
+  searches:String[];
   
   ngOnInit(): void {
      this.route.queryParams.subscribe(
@@ -26,13 +28,32 @@ export class SearchBoxComponent implements OnInit{
   }
 
   
-  search( ): void {
-    let url = '/search/';
-    if(this.allOrImage)
-      url += 'images';
-    else
-      url += 'all';
-    this.router.navigate([url], {queryParams: { 'query':  this.searchText} });        
-  }
   
+  search(){
+    let url = '/search/';
+      if(this.allOrImage)
+        url += 'images';
+      else
+        url += 'all';
+      this.router.navigate([url], {queryParams: { 'query':  this.searchText} });
+  }
+
+  newSearch(event) {
+    if(event.key === "Enter") {
+      this.search();
+    }
+    this.data.getAutoComplete(this.searchText).subscribe(
+      list =>  {this.searches = list
+                console.log(list)} 
+    );
+  }
+
+  pickSuggestion(suggestion){
+    let url = '/search/';
+      if(this.allOrImage)
+        url += 'images';
+      else
+        url += 'all';
+      this.router.navigate([url], {queryParams: { 'query':  suggestion} });
+  }
 }

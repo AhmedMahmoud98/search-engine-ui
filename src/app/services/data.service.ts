@@ -10,6 +10,7 @@ import { Page } from '../models/page';
 
 export class DataService {
 
+  base: String = 'http://localhost:8080/api/';
   constructor(private http: HttpClient) { }
 
   getSearchResults(Query: string): Observable<Page[]> {
@@ -20,6 +21,12 @@ export class DataService {
       .pipe(
         catchError(this.handleError) // code 401 -> Unauthorized access.
       );
+  }
+
+  getAutoComplete(search: string): Observable<String[]>{
+    const options = search ?
+     { params: new HttpParams().set('searchString', search) } : {};
+     return this.http.get<String[]>(this.base + 'suggestions?query='+search);
   }
 
 

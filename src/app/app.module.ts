@@ -52,7 +52,7 @@ const routes: Routes = [{ path: '', component: HomePageComponent },
     ChartsModule,
     FormsModule,
     NgxFlagPickerModule,
-    HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, { dataEncapsulation: false }),
+    //HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, { dataEncapsulation: false }),
     HttpClientModule,
     RouterModule.forRoot(routes)
   ],

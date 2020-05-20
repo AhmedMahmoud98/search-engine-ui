@@ -1,6 +1,7 @@
 import { Component, OnInit, OnChanges } from '@angular/core';
 import {  Router, ActivatedRoute } from '@angular/router';
 import { DataService } from '../services/data.service';
+import { TouchSequence } from 'selenium-webdriver';
 
 @Component({
   selector: 'app-search-box',
@@ -42,18 +43,15 @@ export class SearchBoxComponent implements OnInit{
     if(event.key === "Enter") {
       this.search();
     }
-    this.data.getAutoComplete(this.searchText).subscribe(
-      list =>  {this.searches = list
+    if(this.searchText){
+      this.data.getAutoComplete(this.searchText).subscribe(
+        list =>  {this.searches = list
                 console.log(list)} 
-    );
+      );
+    }
   }
 
   pickSuggestion(suggestion){
-    let url = '/search/';
-      if(this.allOrImage)
-        url += 'images';
-      else
-        url += 'all';
-      this.router.navigate([url], {queryParams: { 'query':  suggestion} });
+      this.searchText = suggestion;
   }
 }

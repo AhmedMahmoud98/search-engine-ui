@@ -3,6 +3,7 @@ import { HttpErrorResponse, HttpClient, HttpParams } from '@angular/common/http'
 import { throwError , Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { Page } from '../models/page';
+import { Trend } from '../models/trend';
 
 @Injectable({
   providedIn: 'root'
@@ -27,6 +28,12 @@ export class DataService {
     const options = search ?
      { params: new HttpParams().set('searchString', search) } : {};
      return this.http.get<String[]>(this.base + 'suggestions?query='+search);
+  }
+
+  getTrends(country: string): Observable<Trend[]>{
+    const options = country ?
+     { params: new HttpParams().set('country', country) } : {};
+     return this.http.get<Trend[]>(this.base + 'Trends?country='+country);
   }
 
 

@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ChartOptions, ChartType, ChartDataSets } from 'chart.js';
 import { Label } from 'ng2-charts';
-
+import {  Router, ActivatedRoute } from '@angular/router';
+import { DataService } from '../services/data.service';
+import { Trend } from '../models/trend';
 
 @Component({
   selector: 'app-trends-histogram',
@@ -16,14 +18,12 @@ export class TrendsHistogramComponent implements OnInit {
     scales: { xAxes: [{}], yAxes: [{}] },
 
   };
-  public barChartLabels: Label[] = ['2006', '2007', '2008', '2009', '2010', '2011', '2012',
-                                    '2013', '2014', '2015'];
+  
+  public barChartLabels: Label[] = []; 
   public barChartType: ChartType = 'bar';
   public barChartLegend = true;
 
-  public barChartData: ChartDataSets[] = [
-    { data: [65, 59, 80, 81, 56, 55, 40, 50 ,60, 70], label: 'Trends' }
-  ];
+  public barChartData: ChartDataSets[] = [] 
 
   public barChartColors = [
     {
@@ -36,31 +36,32 @@ export class TrendsHistogramComponent implements OnInit {
     }
   ];
 
+  Trends: Trend[];
 
-  constructor() { }
 
-  ngOnInit(): void {}
+  constructor(private route: ActivatedRoute, private router: Router, private data: DataService) { }
 
-  // events
-  public chartClicked({ event, active }: { event: MouseEvent, active: {}[] }): void {
-    console.log(event, active);
+  ngOnInit(): void {
+    this.data.getTrends("US").subscribe(
+      list =>  {this.Trends = list
+          this.extractData(this.Trends)} 
+    );
   }
 
-  public chartHovered({ event, active }: { event: MouseEvent, active: {}[] }): void {
-    console.log(event, active);
+  extractData(Trends) {
+    var keys = Object.keys(Trends[0]);                          // get the keys of the first object (assuming all objects have the same keys)
+    var result = {};                                           // the result object (you can use the safe Object.create(null) instead of {})
+
+    keys.forEach(key => result[key] = []);                     // initialize the result object (make an empty array entry for each key in keys)
+
+    Trends.forEach(obj =>                                       // for each object in array
+        keys.forEach(key => result[key].push(obj[key])));
+    this.barChartLabels = result["trendName"];
+    this.barChartData = [
+      { data: result["frequency"], label: 'Trends' }
+    ];
   }
 
-  public randomize(): void {
-    // Only Change 3 values
-    const data = [
-      Math.round(Math.random() * 100),
-      59,
-      80,
-      (Math.random() * 100),
-      56,
-      (Math.random() * 100),
-      40];
-    this.barChartData[0].data = data;
-  }
+
 }
 

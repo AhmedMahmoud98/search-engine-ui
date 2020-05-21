@@ -4,8 +4,8 @@
  * How many times it has been searched
  */
 export interface Page {
-    /** The page title */
+    /** The Person Name */
     trendName: string;
-    /** The page URL */
-    trendFreq: number;
+    /** Number of times it has been quried */
+    frequency: number;
 }

@@ -7,6 +7,7 @@ declare const annyang: any;
   templateUrl: './voice-recognition.component.html',
   styleUrls: ['./voice-recognition.component.css']
 })
+
 export class VoiceRecognitionComponent implements OnInit {
   voiceActiveSectionDisabled: boolean = true;
   voiceActiveSectionError: boolean = false;
@@ -47,10 +48,12 @@ export class VoiceRecognitionComponent implements OnInit {
       let queryText: any = userSaid[0];
       annyang.abort();
       this.voiceText = queryText;
+      console.log(this.voiceText)
       this.ngZone.run(() => this.voiceActiveSectionListening = false);
       this.ngZone.run(() => this.voiceActiveSectionSuccess = true);
     });
   }
+
   startVoiceRecognition(): void {
     this.voiceActiveSectionDisabled = false;
     this.voiceActiveSectionError = false;

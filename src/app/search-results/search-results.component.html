@@ -1,9 +1,8 @@
 <div id="header">
   <div id="topbar">
-    <app-search-box> </app-search-box>
+    <app-search-box class="search-box"> </app-search-box>
   </div>
-  <!--Profile Page Secondry NavBar [Taps, Follow & Following Buttons, DropDownMenu -->
-  <div class="Profile-NavBar">
+  <div class="NavBar">
     <ul id="Taps">
       <li> <div id ="Tap" routerLinkActive="active" [routerLink]="['all']"  [queryParams]= "{ query: search } "> <a > ALL </a> </div> </li>
       <li> <div id ="Tap" routerLinkActive="active" [routerLink]="['images']"  [queryParams]= "{ query: search } "><a > IMAGES </a> </div></li>

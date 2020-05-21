@@ -15,6 +15,7 @@ export class SearchBoxComponent implements OnInit{
   urlparam: string;
   allOrImage: boolean;
   searches:String[];
+  suggestionIndex: number = -1;
   
   ngOnInit(): void {
      this.route.queryParams.subscribe(
@@ -27,8 +28,6 @@ export class SearchBoxComponent implements OnInit{
     });
   }
 
-  
-  
   search(){
     let url = '/search/';
       if(this.allOrImage)
@@ -55,5 +54,36 @@ export class SearchBoxComponent implements OnInit{
       else
         url += 'all';
       this.router.navigate([url], {queryParams: { 'query':  suggestion} });
+  }
+
+  focusInput(suggestionIndex) {
+    var elementId = suggestionIndex.toString();
+    var modal = document.getElementById(elementId);
+    modal.classList.add('list-group-item-active');
+  }
+  
+  unFocusInput(suggestionIndex) {
+    var elementId = suggestionIndex.toString();
+    var modal = document.getElementById(elementId);
+    if(modal != null)
+      modal.classList.remove('list-group-item-active');
+  }
+
+  shiftFocusDown() {
+    if(this.suggestionIndex < this.searches.length - 1)
+    {
+      this.unFocusInput(this.suggestionIndex);
+      this.suggestionIndex++;
+      this.focusInput(this.suggestionIndex);
+    }
+  }
+  
+  shiftFocusUp() {
+    if(this.suggestionIndex > 0)
+    {
+      this.unFocusInput(this.suggestionIndex);
+      this.suggestionIndex--;
+      this.focusInput(this.suggestionIndex);
+    }
   }
 }

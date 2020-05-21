@@ -65,9 +65,26 @@ img{
     cursor: pointer;
 }
 
-.list-group-item{
+.list-group-item {
     cursor: pointer;
-    margin-left: 155px;
-    margin-right: 245px;
-    position: relative;
+    width: 750px;
+    margin-left: 142px;
+    padding-top: 20px;
+    position: relative; 
+    z-index: 99;
+    border: 1px solid #d4d4d4 !important;
+    border-bottom: none;
+    border-top: none;
+    overflow: hidden;
 }
+
+.list-group-item:hover
+{
+    background-color: #f1f1f1 !important;
+    color: black !important;
+}
+
+.list-group-item-active {
+    background-color: DodgerBlue !important;
+    color: #ffffff !important;
+  }

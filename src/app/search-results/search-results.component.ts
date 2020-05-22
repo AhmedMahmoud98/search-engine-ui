@@ -12,15 +12,12 @@ export class SearchResultsComponent implements OnInit {
   
   search: string ;
 
-  constructor(private route: ActivatedRoute ,private router: Router) {
-    
-   } ;
+  constructor(private route: ActivatedRoute ,private router: Router) {} ;
     
   ngOnInit(): void {
     this.route.queryParams.subscribe(
       params => this.search = params['query']);
     this.search = this.route.snapshot.queryParamMap.get('query');
-    
   }
 
 }

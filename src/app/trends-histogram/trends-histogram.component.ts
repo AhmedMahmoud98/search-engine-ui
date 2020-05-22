@@ -14,16 +14,13 @@ export class TrendsHistogramComponent implements OnInit {
 
   public barChartOptions: ChartOptions = {
     responsive: true,
-    // We use these empty structures as placeholders for dynamic theming.
     scales: { xAxes: [{}], yAxes: [{}] },
-
   };
   
-  public barChartLabels: Label[] = []; 
+  public barChartLabels: Label[] = [];
+  public barChartData: ChartDataSets[] = []  
   public barChartType: ChartType = 'bar';
   public barChartLegend = true;
-
-  public barChartData: ChartDataSets[] = [] 
 
   public barChartColors = [
     {
@@ -36,13 +33,19 @@ export class TrendsHistogramComponent implements OnInit {
     }
   ];
 
+  selectedCountry: string;
   Trends: Trend[];
 
-
-  constructor(private route: ActivatedRoute, private router: Router, private data: DataService) { }
+  constructor(private route: ActivatedRoute, 
+              private router: Router, 
+              private data: DataService) { }
 
   ngOnInit(): void {
-    this.data.getTrends("US").subscribe(
+    this.route.queryParams.subscribe(
+    params => this.selectedCountry = params['country']);
+    this.selectedCountry = this.route.snapshot.queryParamMap.get('country');
+
+    this.data.getTrends(this.selectedCountry).subscribe(
       list =>  {this.Trends = list
           this.extractData(this.Trends)} 
     );

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {  Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-home-page',
@@ -14,11 +15,15 @@ export class HomePageComponent implements OnInit {
     this.selectedCountryCode = value;
   }
   
-  constructor() { }
+  constructor(private route: ActivatedRoute, 
+              private router: Router) { }
 
   ngOnInit(): void {
     
   }
 
-
+  trendsNavigator(){
+    let url = '/trends/';
+    this.router.navigate([url], {queryParams: { 'country':   this.selectedCountryCode} });
+  }
 }

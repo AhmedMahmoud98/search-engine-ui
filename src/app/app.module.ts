@@ -9,8 +9,6 @@ import { NgxFlagPickerModule } from 'ngx-flag-picker';
 
 // Http Services
 import { HttpClientModule } from '@angular/common/http';
-import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryDataService } from '../app/services/in-memory-data-service.service';
 
 // Components
 import { SearchResultsTextComponent } from './search-results-text/search-results-text.component';

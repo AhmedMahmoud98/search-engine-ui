@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Image } from '../models/image';
+import { DataService } from '../services/data.service';
+import {  Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-search-results-images',
@@ -9,126 +11,8 @@ import { Image } from '../models/image';
 
 export class SearchResultsImagesComponent implements OnInit {
 
-  SearchResultsImages: Image[] = [{
-
-    siteUrl: "https://en.wikipedia.org/wiki/Lock_(computer_science)",
-    imageUrl: "https://images.pexels.com/photos/62307/air-bubbles-diving-underwater-blow-62307.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-    //caption: "Hello Image",
-  },
-  {
-
-    siteUrl: "https://en.wikipedia.org/wiki/Lock_(computer_science)",
-    imageUrl: "https://images.pexels.com/photos/38238/maldives-ile-beach-sun-38238.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-    //caption: "Hello Image",
-  },
-  {
-
-    siteUrl: "https://en.wikipedia.org/wiki/Lock_(computer_science)",
-    imageUrl: "https://images.pexels.com/photos/38238/maldives-ile-beach-sun-38238.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-    //caption: "Hello Image",
-  },
-  {
-
-    siteUrl: "https://en.wikipedia.org/wiki/Lock_(computer_science)",
-    imageUrl: "https://images.pexels.com/photos/38238/maldives-ile-beach-sun-38238.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-    //caption: "Hello Image",
-  },
-  {
-
-    siteUrl: "https://en.wikipedia.org/wiki/Lock_(computer_science)",
-    imageUrl: "https://images.pexels.com/photos/62307/air-bubbles-diving-underwater-blow-62307.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-    //caption: "Hello Image",
-  },
-  {
-
-    siteUrl: "https://en.wikipedia.org/wiki/Lock_(computer_science)",
-    imageUrl: "https://images.pexels.com/photos/62307/air-bubbles-diving-underwater-blow-62307.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-    //caption: "Hello Image",
-  },
-  {
-
-    siteUrl: "https://en.wikipedia.org/wiki/Lock_(computer_science)",
-    imageUrl: "../../assets/main2.jpg",
-    //caption: "Hello Image",
-  },
-  {
-
-    siteUrl: "https://en.wikipedia.org/wiki/Lock_(computer_science)",
-    imageUrl: "https://images.pexels.com/photos/62307/air-bubbles-diving-underwater-blow-62307.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-    //caption: "Hello Image",
-  }, {
-
-    siteUrl: "https://en.wikipedia.org/wiki/Lock_(computer_science)",
-    imageUrl: "https://images.pexels.com/photos/62307/air-bubbles-diving-underwater-blow-62307.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-    //caption: "Hello Image",
-  },
-  {
-
-    siteUrl: "https://en.wikipedia.org/wiki/Lock_(computer_science)",
-    imageUrl: "https://images.pexels.com/photos/62307/air-bubbles-diving-underwater-blow-62307.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-    //caption: "Hello Image",
-  },
-  {
-
-    siteUrl: "https://en.wikipedia.org/wiki/Lock_(computer_science)",
-    imageUrl: "https://images.pexels.com/photos/62307/air-bubbles-diving-underwater-blow-62307.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-    //caption: "Hello Image",
-  },
-  {
-
-    siteUrl: "https://en.wikipedia.org/wiki/Lock_(computer_science)",
-    imageUrl: "https://images.pexels.com/photos/62307/air-bubbles-diving-underwater-blow-62307.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-    //caption: "Hello Image",
-  },
-  {
-
-    siteUrl: "https://en.wikipedia.org/wiki/Lock_(computer_science)",
-    imageUrl: "https://images.pexels.com/photos/62307/air-bubbles-diving-underwater-blow-62307.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-    //caption: "Hello Image",
-  },
-  {
-
-    siteUrl: "https://en.wikipedia.org/wiki/Lock_(computer_science)",
-    imageUrl: "https://images.pexels.com/photos/62307/air-bubbles-diving-underwater-blow-62307.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-    //caption: "Hello Image",
-  },
-  {
-
-    siteUrl: "https://en.wikipedia.org/wiki/Lock_(computer_science)",
-    imageUrl: "https://i.picsum.photos/id/448/200/300.jpg",
-    //caption: "Hello Image",
-  },
-
-  {
-
-    siteUrl: "https://en.wikipedia.org/wiki/Lock_(computer_science)",
-    imageUrl: "https://i.picsum.photos/id/155/200/300.jpg",
-    //caption: "Hello Image",
-  },
-  {
-
-    siteUrl: "https://en.wikipedia.org/wiki/Lock_(computer_science)",
-    imageUrl: "https://images.pexels.com/photos/62307/air-bubbles-diving-underwater-blow-62307.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-    //caption: "Hello Image",
-  },
-  {
-
-    siteUrl: "https://en.wikipedia.org/wiki/Lock_(computer_science)",
-    imageUrl: "https://images.pexels.com/photos/62307/air-bubbles-diving-underwater-blow-62307.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-    //caption: "Hello Image",
-  },
-  {
-
-    siteUrl: "https://en.wikipedia.org/wiki/Lock_(computer_science)",
-    imageUrl: "https://images.pexels.com/photos/62307/air-bubbles-diving-underwater-blow-62307.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-    //caption: "Hello Image",
-  },
-  {
-
-    siteUrl: "https://en.wikipedia.org/wiki/Lock_(computer_science)",
-    imageUrl: "https://images.pexels.com/photos/62307/air-bubbles-diving-underwater-blow-62307.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
-    //caption: "Hello Image",
-  }]
+  searchResultsImages: Image[] = []
+  query: string;
 
   public maxSize: number = 7;
   public directionLinks: boolean = true;
@@ -149,15 +33,6 @@ export class SearchResultsImagesComponent implements OnInit {
       screenReaderCurrentLabel: `You're on page`
   };
 
-  onPageChange(event){
-    this.paginationConfig.currentPage = event;
-  }
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
   imageZoomIn(event)
   {
     var elementId = (event.target as Element).id;
@@ -170,6 +45,30 @@ export class SearchResultsImagesComponent implements OnInit {
     var elementId = (event.target as Element).id;
     var modal = document.getElementById(elementId);
     modal.classList.remove('transition')
+  }
+
+  constructor(private route: ActivatedRoute, 
+    private router: Router, 
+    private searchService: DataService) { }
+
+  ngOnInit(): void {
+    this.imagesRequest();
+  }
+
+  onPageChange(event){
+    this.paginationConfig.currentPage = event;
+    this.imagesRequest();
+  }
+
+  imagesRequest(){
+    this.route.queryParams.subscribe(
+      params => this.query = params['query']);
+      this.query = this.route.snapshot.queryParamMap.get('query');
+
+    this.searchService.getImages(this.query, 
+              this.paginationConfig.currentPage.toString()).subscribe(
+      list =>  {this.searchResultsImages = list} 
+    );
   }
 
 }

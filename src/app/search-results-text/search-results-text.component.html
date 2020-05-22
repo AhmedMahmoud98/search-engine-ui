@@ -1,4 +1,4 @@
-  <div class="searchresult" *ngFor="let page of SearchResultsText | paginate: paginationConfig">
+  <div class="searchresult" *ngFor="let page of searchResultsText | paginate: paginationConfig">
     <h2> <a href="{{page.url}}"> {{page.title}} </a></h2>
     <a id="url"> {{page.url}} </a>
     <p> {{page.summary}} </p>

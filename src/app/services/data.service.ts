@@ -4,6 +4,7 @@ import { throwError , Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { Page } from '../models/page';
 import { Trend } from '../models/trend';
+import { Image } from '../models/image';
 
 @Injectable({
   providedIn: 'root'
@@ -27,13 +28,27 @@ export class DataService {
   getAutoComplete(search: string): Observable<String[]>{
     const options = search ?
      { params: new HttpParams().set('searchString', search) } : {};
-     return this.http.get<String[]>(this.base + 'suggestions?query='+search);
+     return this.http.get<String[]>(this.base + 'suggestions?query='+search).pipe(catchError(this.handleError));
   }
 
   getTrends(country: string): Observable<Trend[]>{
     const options = country ?
      { params: new HttpParams().set('country', country) } : {};
-     return this.http.get<Trend[]>(this.base + 'Trends?country='+country);
+     return this.http.get<Trend[]>(this.base + 'Trends?country='+country).pipe(catchError(this.handleError));
+  }
+
+  getPages(query: string, pageNumber: string): Observable<Page[]> {
+    console.log(query); 
+    console.log(pageNumber); 
+    const parametersSent = 
+     { params: new HttpParams().set('query', query).append('pageNumber', pageNumber) };
+     return this.http.get<Page[]>(this.base + 'Pages', parametersSent).pipe(catchError(this.handleError));
+  }
+
+  getImages(query: string, pageNumber: string): Observable<Image[]> { 
+    const parametersSent = 
+     { params: new HttpParams().set('query', query).append('pageNumber', pageNumber) };
+     return this.http.get<Image[]>(this.base + 'Images', parametersSent).pipe(catchError(this.handleError));
   }
 
 

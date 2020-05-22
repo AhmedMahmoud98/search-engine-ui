@@ -1,7 +1,7 @@
 <!-- Page Content -->
 <div class="container-fluid page-top">
     <div class="row">
-        <div class="col-lg-3 col-md-4 col-xs-6 thumb" *ngFor="let image of SearchResultsImages | paginate: paginationConfig; let i = index">
+        <div class="col-lg-3 col-md-4 col-xs-6 thumb" *ngFor="let image of searchResultsImages | paginate: paginationConfig; let i = index">
             <a href="{{image.siteUrl}}">
                 <img src= "{{image.imageUrl}}"
                     class="zoom img-fluid " id = "{{i}}" alt=""

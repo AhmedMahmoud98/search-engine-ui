@@ -30,7 +30,6 @@ export class SearchBoxComponent implements OnInit {
   }
 
   search(){
-    console.log("Hello");
     let url = '/search/';
     if(this.allOrImage)
       url += 'images';
@@ -41,8 +40,16 @@ export class SearchBoxComponent implements OnInit {
 
   newSearch(event) {
     if(event.key === "Enter") {
-      if(this.searches != null && this.suggestionIndex < this.searches.length - 1 &&  this.suggestionIndex > 0)
-        this.pickSuggestion(this.searches[this.suggestionIndex]);
+      if(this.searches != null && this.suggestionIndex <= this.searches.length - 1 &&  this.suggestionIndex >= 0)
+      {
+        let suggestiontemp = this.searches[this.suggestionIndex];
+        if(this.searchText === suggestiontemp)
+          this.search();
+        else {
+          this.pickSuggestion(suggestiontemp);
+          this.suggestionIndex = this.searches.findIndex(x => x === suggestiontemp) ;
+        }
+      }
       else
         this.search();
     }

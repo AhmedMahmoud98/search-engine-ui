@@ -1,4 +1,10 @@
 <div class="container-fluid page">
+  <span class="picker-wrapper">
+    <ngx-flag-picker [selectedCountryCode]="selectedCountryCode" [countryCodes]="countryCodes"
+      (changedCountryCode)="changeSelectedCountryCode($event)">
+    </ngx-flag-picker>
+  </span>
+  
   <img class="Logo" src="./assets/logo3.png" 
       alt="Profile Picture" id="searchbarimage" [routerLink]="['/']" />
   <div class = "chart-wrapper"> 

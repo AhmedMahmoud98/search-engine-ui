@@ -28,7 +28,7 @@ export class DataService {
   getAutoComplete(search: string): Observable<String[]>{
     const options = search ?
      { params: new HttpParams().set('searchString', search) } : {};
-     return this.http.get<String[]>(this.base + 'suggestions?query='+search).pipe(catchError(this.handleError));
+     return this.http.get<String[]>(this.base + 'Suggestions?query='+search).pipe(catchError(this.handleError));
   }
 
   getTrends(country: string): Observable<Trend[]>{

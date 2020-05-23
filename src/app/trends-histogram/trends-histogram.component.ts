@@ -12,6 +12,21 @@ import { Trend } from '../models/trend';
 })
 export class TrendsHistogramComponent implements OnInit {
 
+  public selectedCountryCode: string;
+  countryCodes = ['eg', 'us', 'lu', 'de', 'bs', 'br', 'pt'];
+
+  changeSelectedCountryCode(value: string): void {
+    this.selectedCountryCode = value;
+    let url = '/trends';
+    this.router.navigate([url], {queryParams: {'country': this.selectedCountryCode} });
+  }
+
+  constructor(private route: ActivatedRoute, 
+    private router: Router, 
+    private data: DataService) {
+      route.queryParams.subscribe(country => this.trendsRequest());
+    }
+
   public barChartOptions: ChartOptions = {
     responsive: true,
     scales: { xAxes: [{}], yAxes: [{}] },
@@ -33,38 +48,42 @@ export class TrendsHistogramComponent implements OnInit {
     }
   ];
 
-  selectedCountry: string;
   Trends: Trend[];
 
-  constructor(private route: ActivatedRoute, 
-              private router: Router, 
-              private data: DataService) { }
+  trendsRequest() {
+    this.route.queryParams.subscribe(
+    params => this.selectedCountryCode = params['country']);
+    this.selectedCountryCode = this.route.snapshot.queryParamMap.get('country');
+
+      this.data.getTrends(this.selectedCountryCode).subscribe(
+        list =>  {this.Trends = list
+            this.extractData(this.Trends)} 
+      );
+  }
 
   ngOnInit(): void {
-    this.route.queryParams.subscribe(
-    params => this.selectedCountry = params['country']);
-    this.selectedCountry = this.route.snapshot.queryParamMap.get('country');
-
-    this.data.getTrends(this.selectedCountry).subscribe(
-      list =>  {this.Trends = list
-          this.extractData(this.Trends)} 
-    );
+    this.trendsRequest();
   }
 
   extractData(Trends) {
     if(Trends!= null) 
     {
-      var keys = Object.keys(Trends[0]);                          // get the keys of the first object (assuming all objects have the same keys)
-      var result = {};                                           // the result object (you can use the safe Object.create(null) instead of {})
+      var keys = Object.keys(Trends[0]);                          
+      var result = {};                                           
 
-      keys.forEach(key => result[key] = []);                     // initialize the result object (make an empty array entry for each key in keys)
+      keys.forEach(key => result[key] = []);                    
 
-      Trends.forEach(obj =>                                       // for each object in array
+      Trends.forEach(obj =>                                      
           keys.forEach(key => result[key].push(obj[key])));
       this.barChartLabels = result["trendName"];
       this.barChartData = [
         { data: result["frequency"], label: 'Trends' }
       ];
+    } 
+    else {
+      this.barChartLabels = [];
+      this.barChartData = [];
+      this.Trends = [];
     }
   }
 

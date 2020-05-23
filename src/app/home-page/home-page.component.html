@@ -1,32 +1,28 @@
 <div class='container-fluid home-page'>
 
   <span class="picker-wrapper">
-    <ngx-flag-picker
-        [selectedCountryCode]="selectedCountryCode"
-        [countryCodes]="countryCodes"
-        (changedCountryCode)="changeSelectedCountryCode($event)">
-      </ngx-flag-picker>
-    </span>
+    <ngx-flag-picker [selectedCountryCode]="selectedCountryCode" [countryCodes]="countryCodes"
+      (changedCountryCode)="changeSelectedCountryCode($event)">
+    </ngx-flag-picker>
+  </span>
 
-    <i class="fa fa-bar-chart" id ="bar-chart-icon" 
-       style="font-size: 2.5em;"
-       aria-hidden="true" (click)="trendsNavigator()"></i>
-      <P id="trends-caption"> Trends </P>
+  <i class="fa fa-bar-chart" id="bar-chart-icon" style="font-size: 2.5em;" aria-hidden="true"
+    (click)="trendsNavigator()"></i>
+  <P id="trends-caption"> Trends </P>
   <div id="search-box">
     <app-search-box [userLocation]='selectedCountryCode'> </app-search-box>
   </div>
 
   <nav class="navbar fixed-bottom">
     <div class="container">
-        <div class="col align-self-end">
-          <ul class="social-icons">
-            <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
-            <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
-            <li><a class="dribbble" href="#"><i class="fa fa-dribbble"></i></a></li>
-            <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
-          </ul>
-        </div>
+      <div class="col align-self-end">
+        <ul class="social-icons">
+          <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+          <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+          <li><a class="dribbble" href="#"><i class="fa fa-dribbble"></i></a></li>
+          <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
+        </ul>
       </div>
+    </div>
   </nav>
 </div>
-

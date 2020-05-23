@@ -8,11 +8,12 @@ import {  Router, ActivatedRoute } from '@angular/router';
 })
 export class HomePageComponent implements OnInit {
 
-  selectedCountryCode = 'eg';
+  public selectedCountryCode: string = 'eg';
   countryCodes = ['eg', 'us', 'lu', 'de', 'bs', 'br', 'pt'];
 
   changeSelectedCountryCode(value: string): void {
     this.selectedCountryCode = value;
+
   }
   
   constructor(private route: ActivatedRoute, 

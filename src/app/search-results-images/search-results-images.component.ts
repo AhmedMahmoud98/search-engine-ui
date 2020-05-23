@@ -13,6 +13,7 @@ export class SearchResultsImagesComponent implements OnInit {
 
   searchResultsImages: Image[] = []
   query: string;
+  userLocation: string;
 
   public maxSize: number = 7;
   public directionLinks: boolean = true;
@@ -22,7 +23,7 @@ export class SearchResultsImagesComponent implements OnInit {
   paginationConfig = {
     itemsPerPage: 20,
     currentPage: 1,
-    totalItems: 19
+    totalItems: this.searchResultsImages.length
   };
 
   public labels: any = {
@@ -49,10 +50,12 @@ export class SearchResultsImagesComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, 
     private router: Router, 
-    private searchService: DataService) { }
+    private searchService: DataService) { 
+      route.queryParams.subscribe(query => this.imagesRequest());
+    }
 
   ngOnInit(): void {
-    this.imagesRequest();
+
   }
 
   onPageChange(event){
@@ -65,10 +68,18 @@ export class SearchResultsImagesComponent implements OnInit {
       params => this.query = params['query']);
       this.query = this.route.snapshot.queryParamMap.get('query');
 
-    this.searchService.getImages(this.query, 
+    this.route.queryParams.subscribe(
+      params => this.userLocation = params['country']);
+      this.userLocation = this.route.snapshot.queryParamMap.get('country');
+
+    this.searchService.getImages(this.query, this.userLocation,
               this.paginationConfig.currentPage.toString()).subscribe(
       list =>  {this.searchResultsImages = list} 
     );
+  }
+
+  visitedUrl(event) {
+
   }
 
 }

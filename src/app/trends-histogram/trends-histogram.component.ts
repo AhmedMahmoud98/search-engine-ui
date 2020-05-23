@@ -52,17 +52,20 @@ export class TrendsHistogramComponent implements OnInit {
   }
 
   extractData(Trends) {
-    var keys = Object.keys(Trends[0]);                          // get the keys of the first object (assuming all objects have the same keys)
-    var result = {};                                           // the result object (you can use the safe Object.create(null) instead of {})
+    if(Trends!= null) 
+    {
+      var keys = Object.keys(Trends[0]);                          // get the keys of the first object (assuming all objects have the same keys)
+      var result = {};                                           // the result object (you can use the safe Object.create(null) instead of {})
 
-    keys.forEach(key => result[key] = []);                     // initialize the result object (make an empty array entry for each key in keys)
+      keys.forEach(key => result[key] = []);                     // initialize the result object (make an empty array entry for each key in keys)
 
-    Trends.forEach(obj =>                                       // for each object in array
-        keys.forEach(key => result[key].push(obj[key])));
-    this.barChartLabels = result["trendName"];
-    this.barChartData = [
-      { data: result["frequency"], label: 'Trends' }
-    ];
+      Trends.forEach(obj =>                                       // for each object in array
+          keys.forEach(key => result[key].push(obj[key])));
+      this.barChartLabels = result["trendName"];
+      this.barChartData = [
+        { data: result["frequency"], label: 'Trends' }
+      ];
+    }
   }
 
 

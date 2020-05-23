@@ -13,7 +13,7 @@
        aria-hidden="true" (click)="trendsNavigator()"></i>
       <P id="trends-caption"> Trends </P>
   <div id="search-box">
-    <app-search-box> </app-search-box>
+    <app-search-box [userLocation]='selectedCountryCode'> </app-search-box>
   </div>
 
   <nav class="navbar fixed-bottom">

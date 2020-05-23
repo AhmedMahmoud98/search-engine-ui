@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpErrorResponse, HttpClient, HttpParams } from '@angular/common/http';
 import { throwError , Observable } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { catchError, map } from 'rxjs/operators';
 import { Page } from '../models/page';
 import { Trend } from '../models/trend';
 import { Image } from '../models/image';
@@ -37,20 +37,28 @@ export class DataService {
      return this.http.get<Trend[]>(this.base + 'Trends?country='+country).pipe(catchError(this.handleError));
   }
 
-  getPages(query: string, pageNumber: string): Observable<Page[]> {
-    console.log(query); 
-    console.log(pageNumber); 
+  getPages(query: string, userLocation: string, pageNumber: string): Observable<Page[]> {
     const parametersSent = 
-     { params: new HttpParams().set('query', query).append('pageNumber', pageNumber) };
+     { params: new HttpParams().set('query', query)
+                              .append('country', userLocation)
+                              .append('pageNumber', pageNumber) };
      return this.http.get<Page[]>(this.base + 'Pages', parametersSent).pipe(catchError(this.handleError));
   }
 
-  getImages(query: string, pageNumber: string): Observable<Image[]> { 
+  getImages(query: string, userLocation: string, pageNumber: string): Observable<Image[]> { 
     const parametersSent = 
-     { params: new HttpParams().set('query', query).append('pageNumber', pageNumber) };
+    { params: new HttpParams().set('query', query)
+                             .append('country', userLocation)
+                             .append('pageNumber', pageNumber) };
      return this.http.get<Image[]>(this.base + 'Images', parametersSent).pipe(catchError(this.handleError));
   }
 
+  postVisitedUrl(url: string): Observable<any> {
+    return this.http.post<any>(this.base + 'VisitedUrl', { visitedUrl: url }).pipe(
+      map(res => res),
+      catchError(this.handleError)
+    );
+  }
 
   // use retry func
   private handleError(error: HttpErrorResponse) {

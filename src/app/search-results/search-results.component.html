@@ -1,11 +1,12 @@
 <div id="header">
   <div id="topbar">
-    <app-search-box class="search-box"> </app-search-box>
+    <app-search-box class="search-box"
+    [userLocation]='userLocation'> </app-search-box>
   </div>
   <div class="NavBar">
     <ul id="Taps">
-      <li> <div id ="Tap" routerLinkActive="active" [routerLink]="['all']"  [queryParams]= "{ query: search } "> <a > ALL </a> </div> </li>
-      <li> <div id ="Tap" routerLinkActive="active" [routerLink]="['images']"  [queryParams]= "{ query: search } "><a > IMAGES </a> </div></li>
+      <li> <div id ="Tap" routerLinkActive="active" [routerLink]="['all']"  [queryParams]= "{ query: search, country: userLocation} "> <a > ALL </a> </div> </li>
+      <li> <div id ="Tap" routerLinkActive="active" [routerLink]="['images']"  [queryParams]= "{ query: search, country: userLocation} "><a > IMAGES </a> </div></li>
     </ul>
   </div>
 </div>

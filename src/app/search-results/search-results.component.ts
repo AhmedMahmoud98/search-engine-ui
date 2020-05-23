@@ -10,7 +10,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 export class SearchResultsComponent implements OnInit {
   
-  search: string ;
+  search: string;
+  userLocation: string;
 
   constructor(private route: ActivatedRoute ,private router: Router) {} ;
     
@@ -18,6 +19,9 @@ export class SearchResultsComponent implements OnInit {
     this.route.queryParams.subscribe(
       params => this.search = params['query']);
     this.search = this.route.snapshot.queryParamMap.get('query');
-  }
 
+    this.route.queryParams.subscribe(
+      params => this.userLocation = params['country']);
+    this.userLocation = this.route.snapshot.queryParamMap.get('country');
+  }
 }

@@ -2,17 +2,17 @@
     <img class="Logo" src="./assets/logo3.png" alt="Profile Picture" id="searchbarimage"  [routerLink]="['/']" />
     <div id="searchbar" type="checkbox">
         <input id="searchbartext"  autocomplete="off" type="text"  [(ngModel)]="searchText" #search ng-model-options="{updateOn: 'change'}" 
-                (keydown)="newSearch($event)"     s
+                (keydown)="newSearch($event)"     
                 (keyup.arrowdown)="shiftFocusDown()"  
                 (keyup.arrowup)="shiftFocusUp()"/>
         <app-voice-recognition style="padding-top: 2%; padding-right:2%"></app-voice-recognition>
-        <i class="fa fa-search" id="searchIcon" style="font-size: 1.3em; color: rgb(46, 80, 173);" (click)="search()"></i>
+        <i class="fa fa-search" id="searchIcon" (click)="newSearch($event)" style="font-size: 1.3em; color: rgb(46, 80, 173);" ></i>
     </div>
 </div>
 <div >
     <div ></div>
     <a class="list-group-item"  *ngFor="let search of searches; let suggestionIndex = index" 
-                 (click)=" pickSuggestion(search)"  id = "{{suggestionIndex}}">
+                 (click)="pickSuggestion(search)"  id = "{{suggestionIndex}}">
     {{search}}
     </a>
 </div>

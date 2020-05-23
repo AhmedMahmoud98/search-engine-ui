@@ -97,4 +97,16 @@ export class SearchBoxComponent implements OnInit {
       this.focusInput(this.suggestionIndex);
     }
   }
+
+  showSuggestions()
+  {
+    var modal = document.getElementById("list-items");
+    modal.style.display = "inline";
+  }
+
+  hideSuggestions() 
+  {
+    var modal = document.getElementById("list-items");
+    modal.style.display = "none";
+  }
 }

@@ -24,4 +24,6 @@ export class SearchResultsComponent implements OnInit {
       params => this.userLocation = params['country']);
     this.userLocation = this.route.snapshot.queryParamMap.get('country');
   }
+
+
 }

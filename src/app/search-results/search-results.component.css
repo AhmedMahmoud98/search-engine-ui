@@ -1,12 +1,22 @@
 #header {
   margin-top: 15px;
+  overflow: visible;
+  display: flex;
+  flex-direction: column;
+  flex-flow: column wrap;
 }
+
 #topbar {
-    display: flex;
-    height: 64px;
-    width: 100%;
-    align-items: flex-end;
-    background-color: white;
+  height: 64px;
+  width: 100%;
+  align-items: flex-end;
+  flex-flow: column wrap;
+  background-color: white;
+}
+
+.search-box {
+  display: list-item;
+  overflow: visible;
 }
 
 .nopadding {
@@ -16,13 +26,15 @@
 }
 
 .NavBar {
-	width: 100%;
+  width: 100%;
+  margin-top: 25px;
 	background-color: #fff;
 	box-sizing: border-box;
 	height: 65px;
-	box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.25);
+  box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.4);
 	overflow-y: visible;
-	line-height: 1.375;
+  line-height: 1.375;
+  flex-flow: column wrap;
 }
 
 #Taps {

@@ -12,7 +12,12 @@ import {Location} from '@angular/common';
 export class SearchResultsTextComponent implements OnInit {
 
   /** Array of Result Pages retrieved from the Backend  */
-  searchResultsText: Page[] = []
+  searchResultsText: Page[] = [{
+    title: "Ahmed",
+    url: "https://www.google.com",
+    summary: "summmary"
+  }];
+
   query: string;
   userLocation: string;
 
@@ -39,7 +44,7 @@ export class SearchResultsTextComponent implements OnInit {
                       private router: Router, 
                       private searchService: DataService, 
                       location: Location) {
-        route.queryParams.subscribe(query => this.pagesRequest());
+        //route.queryParams.subscribe(query => this.pagesRequest());
     }
 
   ngOnInit(): void {
@@ -64,5 +69,23 @@ export class SearchResultsTextComponent implements OnInit {
       list =>  {this.searchResultsText = list} 
     );
   }
+
+  visitedURL(event) 
+  {
+    var elementId = (event.target as Element).id;
+    var url = document.getElementById(elementId).getAttribute("href");
+    this.visitedUrlRequest(url);
+  }
+
+  visitedUrlRequest(url)
+  {
+    this.route.queryParams.subscribe(
+      params => this.query = params['query']);
+      this.query = this.route.snapshot.queryParamMap.get('query');
+    
+    this.searchService.postVisitedUrl(url, this.query).subscribe();
+
+  }
+
 
 }

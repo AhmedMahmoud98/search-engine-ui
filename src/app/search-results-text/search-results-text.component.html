@@ -1,5 +1,5 @@
   <div class="searchresult" *ngFor="let page of searchResultsText | paginate: paginationConfig">
-    <h2> <a href="{{page.url}}"> {{page.title}} </a></h2>
+    <h2> <a id = {{page.url}} href="{{page.url}}" (mousedown)="visitedURL($event)"> {{page.title}} </a></h2>
     <a id="url"> {{page.url}} </a>
     <p> {{page.summary}} </p>
   </div>

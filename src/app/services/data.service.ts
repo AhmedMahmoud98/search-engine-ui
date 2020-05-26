@@ -54,7 +54,6 @@ export class DataService {
   }
 
   postVisitedUrl(url: string, query: string): Observable<any> {
-    console.log("Hello");
     const parametersSent = 
     { params: new HttpParams().set('query', query) };
     return this.http.post<any>(this.base + 'VisitedUrls?query='+query+'&visitedUrl='+url,"").pipe(

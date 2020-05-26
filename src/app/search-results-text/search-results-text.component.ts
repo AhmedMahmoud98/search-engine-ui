@@ -12,11 +12,7 @@ import {Location} from '@angular/common';
 export class SearchResultsTextComponent implements OnInit {
 
   /** Array of Result Pages retrieved from the Backend  */
-  searchResultsText: Page[] = [{
-    title: "Ahmed",
-    url: "https://www.google.com",
-    summary: "summmary"
-  }];
+  searchResultsText: Page[] = [];
 
   query: string;
   userLocation: string;
@@ -44,7 +40,7 @@ export class SearchResultsTextComponent implements OnInit {
                       private router: Router, 
                       private searchService: DataService, 
                       location: Location) {
-        //route.queryParams.subscribe(query => this.pagesRequest());
+        route.queryParams.subscribe(query => this.pagesRequest());
     }
 
   ngOnInit(): void {
@@ -84,7 +80,6 @@ export class SearchResultsTextComponent implements OnInit {
       this.query = this.route.snapshot.queryParamMap.get('query');
     
     this.searchService.postVisitedUrl(url, this.query).subscribe();
-
   }
 
 

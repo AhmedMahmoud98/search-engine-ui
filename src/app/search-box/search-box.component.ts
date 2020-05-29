@@ -31,6 +31,7 @@ export class SearchBoxComponent implements OnInit {
   }
 
   search(){
+    this.suggestionIndex = -1;
     let url = '/search/';
     if(this.allOrImage)
       url += 'images';
@@ -57,6 +58,7 @@ export class SearchBoxComponent implements OnInit {
     else if(event.type === "click")
       this.search();
 
+      
     if(this.searchText){
       this.data.getAutoComplete(this.searchText).subscribe(
         list =>  {this.searches = list} 

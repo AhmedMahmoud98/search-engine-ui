@@ -52,6 +52,7 @@ export class SearchResultsTextComponent implements OnInit {
   }
 
   pagesRequest(){
+    this.searchResultsText = [];
     this.route.queryParams.subscribe(
       params => this.query = params['query']);
       this.query = this.route.snapshot.queryParamMap.get('query');

@@ -1,4 +1,4 @@
-<div class='container-fluid home-page'>
+<div class='container-fluid home-page' id= 'home-page-image'>
 
   <span class="picker-wrapper">
     <ngx-flag-picker [selectedCountryCode]="selectedCountryCode" [countryCodes]="countryCodes"
@@ -9,8 +9,9 @@
   <i class="fa fa-bar-chart" id="bar-chart-icon" style="font-size: 2.5em;" aria-hidden="true"
     (click)="trendsNavigator()"></i>
   <P id="trends-caption"> Trends </P>
+  
   <div id="search-box">
-    <app-search-box [userLocation]='selectedCountryCode'> </app-search-box>
+    <app-search-box id = "search-box" (onFocus)= "onSearchBarFocus($event)" [userLocation]='selectedCountryCode'> </app-search-box>
   </div>
 
   <nav class="navbar fixed-bottom">

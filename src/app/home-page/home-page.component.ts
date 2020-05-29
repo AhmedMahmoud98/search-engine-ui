@@ -23,6 +23,18 @@ export class HomePageComponent implements OnInit {
     
   }
 
+  onSearchBarFocus(isFocus: boolean) {
+    var imageModal = document.getElementById("home-page-image");
+    if(isFocus) {
+      imageModal.classList.add('home-page-image-focus')
+    }
+    else {
+      imageModal.classList.remove('home-page-image-focus')
+    }
+    var searchBoxModal = document.getElementById("search-box");
+    searchBoxModal
+  }
+
   trendsNavigator(){
     let url = '/trends/';
     this.router.navigate([url], {queryParams: { 'country':   this.selectedCountryCode} });

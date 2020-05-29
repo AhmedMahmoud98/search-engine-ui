@@ -1,4 +1,4 @@
-import { Component, OnInit, OnChanges, Input, SimpleChange } from '@angular/core';
+import { Component, OnInit, OnChanges, Input, SimpleChange, EventEmitter, Output } from '@angular/core';
 import {  Router, ActivatedRoute } from '@angular/router';
 import { DataService } from '../services/data.service';
 import { TouchSequence } from 'selenium-webdriver';
@@ -10,6 +10,7 @@ import { TouchSequence } from 'selenium-webdriver';
 })
 export class SearchBoxComponent implements OnInit {
   @Input() userLocation: string;
+  @Output() onFocus: EventEmitter<any> = new EventEmitter<any>()
 
   constructor(private route: ActivatedRoute, private router: Router, private data: DataService) { }
  
@@ -18,7 +19,7 @@ export class SearchBoxComponent implements OnInit {
   allOrImage: boolean;
   searches:String[];
   suggestionIndex: number = -1;
-  
+
   ngOnInit(): void {
      this.route.queryParams.subscribe(
        params =>{ this.searchText = params['query']
@@ -102,11 +103,13 @@ export class SearchBoxComponent implements OnInit {
   {
     var modal = document.getElementById("list-items");
     modal.style.display = "inline";
+    this.onFocus.emit(true);
   }
 
   hideSuggestions() 
   {
     var modal = document.getElementById("list-items");
     modal.style.display = "none";
+    this.onFocus.emit(false);
   }
 }

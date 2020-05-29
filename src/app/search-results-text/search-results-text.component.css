@@ -9,7 +9,17 @@
     color: rgb(29, 1, 189);
     margin-bottom: 0px;
     margin-top: 25px;
+    text-decoration: none;
+    display:inline-block;
 }
+
+.searchresult h2 a:hover:after {
+    display:block;
+    content:'';
+    height:1px;
+    background:blue;
+    margin-top:1px;
+  }
 
 #url {
     font-size: 18px;

@@ -7,7 +7,6 @@
     line-height: 25px;
     font-weight: normal;
     color: rgb(29, 1, 189);
-    margin-bottom: 0px;
     margin-top: 25px;
     text-decoration: none;
     display:inline-block;
@@ -23,7 +22,7 @@
 
 #url {
     font-size: 18px;
-    line-height: 2px;
+    line-height: 1px;
     color: green;
     margin-bottom: 0px;
 }

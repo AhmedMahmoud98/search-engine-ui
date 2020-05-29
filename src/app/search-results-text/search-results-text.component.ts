@@ -17,7 +17,7 @@ export class SearchResultsTextComponent implements OnInit {
   query: string;
   userLocation: string;
 
-  public maxSize: number = 7;
+  public maxSize: number = 55;
   public directionLinks: boolean = true;
   public autoHide: boolean = false;
   public responsive: boolean = true;
@@ -25,7 +25,7 @@ export class SearchResultsTextComponent implements OnInit {
   paginationConfig = {
     itemsPerPage: 10,
     currentPage: 1,
-    totalItems: this.searchResultsText.length
+    totalItems: 10
   };
 
   public labels: any = {
@@ -64,6 +64,16 @@ export class SearchResultsTextComponent implements OnInit {
               this.paginationConfig.currentPage.toString()).subscribe(
       list =>  {this.searchResultsText = list} 
     );
+
+    if(this.paginationConfig.currentPage == 1) {
+      this.SizeRequest()
+    }
+  }
+
+  SizeRequest() {
+    this.searchService.getSize(this.query, "Pages").subscribe(
+    totalSize =>  {this.paginationConfig.totalItems = totalSize} );
+    console.log(this.paginationConfig.totalItems);
   }
 
   visitedURL(event) 
@@ -81,6 +91,4 @@ export class SearchResultsTextComponent implements OnInit {
     
     this.searchService.postVisitedUrl(url, this.query).subscribe();
   }
-
-
 }

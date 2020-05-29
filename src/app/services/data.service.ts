@@ -53,6 +53,13 @@ export class DataService {
      return this.http.get<Image[]>(this.base + 'Images', parametersSent).pipe(catchError(this.handleError));
   }
 
+  getSize(query: string, requestType: string): Observable<number> { 
+    const parametersSent = 
+    { params: new HttpParams().set('query', query)
+                             .append('requestType', requestType) };
+     return this.http.get<number>(this.base + 'Size', parametersSent).pipe(catchError(this.handleError));
+  }
+
   postVisitedUrl(url: string, query: string): Observable<any> {
     const parametersSent = 
     { params: new HttpParams().set('query', query) };

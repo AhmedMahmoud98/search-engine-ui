@@ -76,10 +76,34 @@ export class SearchResultsImagesComponent implements OnInit {
               this.paginationConfig.currentPage.toString()).subscribe(
       list =>  {this.searchResultsImages = list} 
     );
+
+    if(this.paginationConfig.currentPage == 1) {
+      this.SizeRequest()
+    }
   }
 
-  visitedUrl(event) {
-
+  SizeRequest() {
+    this.searchService.getSize(this.query, "Images").subscribe(
+    totalSize =>  {this.paginationConfig.totalItems = totalSize} );
+    console.log(this.paginationConfig.totalItems);
   }
+
+  visitedURL(event) 
+  {
+    var elementId = (event.target as Element).id;
+    var url = document.getElementById(elementId).getAttribute("href");
+    this.visitedUrlRequest(url);
+  }
+
+  visitedUrlRequest(url)
+  {
+    this.route.queryParams.subscribe(
+      params => this.query = params['query']);
+      this.query = this.route.snapshot.queryParamMap.get('query');
+    
+    this.searchService.postVisitedUrl(url, this.query).subscribe();
+  }
+
+
 
 }

@@ -19,6 +19,7 @@ import { SearchResultsComponent } from './search-results/search-results.componen
 import { HomePageComponent } from './home-page/home-page.component';
 import { SearchBoxComponent } from './search-box/search-box.component';
 import { VoiceRecognitionComponent } from './voice-recognition/voice-recognition.component';
+import { TruncateTextPipe } from './truncate-text.pipe';
 
 
 const routes: Routes = [{ path: '', component: HomePageComponent },
@@ -41,7 +42,8 @@ const routes: Routes = [{ path: '', component: HomePageComponent },
     SearchResultsTextComponent,
     SearchResultsImagesComponent,
     TrendsHistogramComponent,
-    VoiceRecognitionComponent
+    VoiceRecognitionComponent,
+    TruncateTextPipe
   ],
   imports: [
     BrowserModule,

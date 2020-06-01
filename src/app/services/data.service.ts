@@ -2,9 +2,9 @@ import { Injectable } from '@angular/core';
 import { HttpErrorResponse, HttpClient, HttpParams } from '@angular/common/http';
 import { throwError , Observable } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
-import { Page } from '../models/page';
+import { Pages } from '../models/pages';
 import { Trend } from '../models/trend';
-import { Image } from '../models/image';
+import { Images } from '../models/images';
 
 @Injectable({
   providedIn: 'root'
@@ -14,16 +14,6 @@ export class DataService {
 
   base: String = 'http://localhost:8080/api/';
   constructor(private http: HttpClient) { }
-
-  getSearchResults(Query: string): Observable<Page[]> {
-    const options = Query ?
-     { params: new HttpParams().set('Query', Query) } : {};
-
-    return this.http.get<Page[]>('api/serachResults', options)
-      .pipe(
-        catchError(this.handleError) // code 401 -> Unauthorized access.
-      );
-  }
 
   getAutoComplete(search: string): Observable<String[]>{
     const options = search ?
@@ -37,27 +27,20 @@ export class DataService {
      return this.http.get<Trend[]>(this.base + 'Trends?country='+country).pipe(catchError(this.handleError));
   }
 
-  getPages(query: string, userLocation: string, pageNumber: string): Observable<Page[]> {
+  getPages(query: string, userLocation: string, pageNumber: string): Observable<Pages> {
     const parametersSent = 
      { params: new HttpParams().set('query', query)
                               .append('country', userLocation)
                               .append('pageNumber', pageNumber) };
-     return this.http.get<Page[]>(this.base + 'Pages', parametersSent).pipe(catchError(this.handleError));
+     return this.http.get<Pages>(this.base + 'Pages', parametersSent).pipe(catchError(this.handleError));
   }
 
-  getImages(query: string, userLocation: string, pageNumber: string): Observable<Image[]> { 
+  getImages(query: string, userLocation: string, pageNumber: string): Observable<Images> { 
     const parametersSent = 
     { params: new HttpParams().set('query', query)
                              .append('country', userLocation)
                              .append('pageNumber', pageNumber) };
-     return this.http.get<Image[]>(this.base + 'Images', parametersSent).pipe(catchError(this.handleError));
-  }
-
-  getSize(query: string, requestType: string): Observable<number> { 
-    const parametersSent = 
-    { params: new HttpParams().set('query', query)
-                             .append('requestType', requestType) };
-     return this.http.get<number>(this.base + 'Size', parametersSent).pipe(catchError(this.handleError));
+     return this.http.get<Images>(this.base + 'Images', parametersSent).pipe(catchError(this.handleError));
   }
 
   postVisitedUrl(url: string, query: string): Observable<any> {

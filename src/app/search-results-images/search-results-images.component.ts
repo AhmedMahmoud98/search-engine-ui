@@ -51,7 +51,7 @@ export class SearchResultsImagesComponent implements OnInit {
   constructor(private route: ActivatedRoute, 
     private router: Router, 
     private searchService: DataService) { 
-      route.queryParams.subscribe(query => this.imagesRequest());
+      route.queryParams.subscribe(query =>{this.paginationConfig.currentPage = 1, this.imagesRequest()});
     }
 
   ngOnInit(): void {
@@ -64,6 +64,9 @@ export class SearchResultsImagesComponent implements OnInit {
   }
 
   imagesRequest(){
+    this.searchResultsImages = [];
+    this.paginationConfig.totalItems = 0;
+
     this.route.queryParams.subscribe(
       params => this.query = params['query']);
       this.query = this.route.snapshot.queryParamMap.get('query');
@@ -74,20 +77,10 @@ export class SearchResultsImagesComponent implements OnInit {
 
     this.searchService.getImages(this.query, this.userLocation,
               this.paginationConfig.currentPage.toString()).subscribe(
-      list =>  {this.searchResultsImages = list} 
+      list =>  {this.searchResultsImages = list.images,  this.paginationConfig.totalItems = list.size} 
     );
-
-    if(this.paginationConfig.currentPage == 1) {
-      this.SizeRequest()
-    }
   }
-
-  SizeRequest() {
-    this.searchService.getSize(this.query, "Images").subscribe(
-    totalSize =>  {this.paginationConfig.totalItems = totalSize} );
-    console.log(this.paginationConfig.totalItems);
-  }
-
+  
   visitedURL(event) 
   {
     var elementId = (event.target as Element).id;

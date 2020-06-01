@@ -1,8 +1,7 @@
 import { Component, OnInit, OnChanges } from '@angular/core';
 import { Page } from '../models/page';
 import { DataService } from '../services/data.service';
-import {  Router, ActivatedRoute, RoutesRecognized, RouteConfigLoadStart } from '@angular/router';
-import {Location} from '@angular/common';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-search-results-text',
@@ -17,7 +16,7 @@ export class SearchResultsTextComponent implements OnInit {
   query: string;
   userLocation: string;
 
-  public maxSize: number = 55;
+  public maxSize: number = 5;
   public directionLinks: boolean = true;
   public autoHide: boolean = false;
   public responsive: boolean = true;
@@ -37,10 +36,8 @@ export class SearchResultsTextComponent implements OnInit {
   };
 
   constructor(private route: ActivatedRoute, 
-                      private router: Router, 
-                      private searchService: DataService, 
-                      location: Location) {
-        route.queryParams.subscribe(query => this.pagesRequest());
+                      private searchService: DataService) {
+        route.queryParams.subscribe(query => {this.paginationConfig.currentPage = 1, this.pagesRequest()});
     }
 
   ngOnInit(): void {
@@ -53,6 +50,8 @@ export class SearchResultsTextComponent implements OnInit {
 
   pagesRequest(){
     this.searchResultsText = [];
+    this.paginationConfig.totalItems = 0;
+      
     this.route.queryParams.subscribe(
       params => this.query = params['query']);
       this.query = this.route.snapshot.queryParamMap.get('query');
@@ -63,18 +62,8 @@ export class SearchResultsTextComponent implements OnInit {
   
     this.searchService.getPages(this.query, this.userLocation,
               this.paginationConfig.currentPage.toString()).subscribe(
-      list =>  {this.searchResultsText = list} 
+      list =>  {this.searchResultsText = list.pages, this.paginationConfig.totalItems = list.size} 
     );
-
-    if(this.paginationConfig.currentPage == 1) {
-      this.SizeRequest()
-    }
-  }
-
-  SizeRequest() {
-    this.searchService.getSize(this.query, "Pages").subscribe(
-    totalSize =>  {this.paginationConfig.totalItems = totalSize} );
-    console.log(this.paginationConfig.totalItems);
   }
 
   visitedURL(event) 

@@ -17,20 +17,23 @@
   }
           
    
-  .transition {
-      -webkit-transform: scale(1.1); 
-      -moz-transform: scale(1.1);
-      -o-transform: scale(1.1);
-      transform: scale(1.1);
-  }
-      .modal-header {
-     
-       border-bottom: none;
-  }
-      .modal-title {
-          color:#000;
-      }
-      .modal-footer{
-        display:none;  
-      }
-  
+.transition {
+    -webkit-transform: scale(1.1); 
+    -moz-transform: scale(1.1);
+    -o-transform: scale(1.1);
+    transform: scale(1.1);
+}
+
+.modal-header {
+    border-bottom: none;
+}
+.modal-title {
+    color:#000;
+}
+.modal-footer{
+    display:none;  
+}
+
+#no-results {
+    font-size: 25px;
+}

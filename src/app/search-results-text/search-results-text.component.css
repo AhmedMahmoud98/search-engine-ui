@@ -33,3 +33,7 @@
     margin-top: 0px;
     color: rgb(82, 82, 82);
 }
+
+#no-results {
+    font-size: 25px;
+}

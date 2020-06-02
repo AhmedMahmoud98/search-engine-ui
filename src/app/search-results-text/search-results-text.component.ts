@@ -15,12 +15,12 @@ export class SearchResultsTextComponent implements OnInit {
 
   query: string;
   userLocation: string;
+  noResultsFound: boolean;
 
   public maxSize: number = 5;
   public directionLinks: boolean = true;
   public autoHide: boolean = false;
   public responsive: boolean = true;
-
   paginationConfig = {
     itemsPerPage: 10,
     currentPage: 1,
@@ -51,7 +51,8 @@ export class SearchResultsTextComponent implements OnInit {
   pagesRequest(){
     this.searchResultsText = [];
     this.paginationConfig.totalItems = 0;
-      
+    this.noResultsFound = false;
+    
     this.route.queryParams.subscribe(
       params => this.query = params['query']);
       this.query = this.route.snapshot.queryParamMap.get('query');
@@ -61,8 +62,10 @@ export class SearchResultsTextComponent implements OnInit {
       this.userLocation = this.route.snapshot.queryParamMap.get('country');
   
     this.searchService.getPages(this.query, this.userLocation,
-              this.paginationConfig.currentPage.toString()).subscribe(
-      list =>  {this.searchResultsText = list.pages, this.paginationConfig.totalItems = list.size} 
+              this.paginationConfig.currentPage.toString()).subscribe(      
+      list =>  {this.searchResultsText = list !== null ? list.pages: [], 
+                this.paginationConfig.totalItems = list !== null ? list.size : 0 ,
+                this.noResultsFound = list===null} 
     );
   }
 

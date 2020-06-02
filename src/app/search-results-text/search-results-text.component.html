@@ -1,3 +1,4 @@
+  <p id="no-results" *ngIf="noResultsFound">No results found for: <strong>"{{query}}"</strong></p>
   <div class="searchresult" *ngFor="let page of searchResultsText | paginate: paginationConfig">
     <h2> <a id = {{page.url}} href="{{page.url}}" (click)="visitedURL($event)" [innerHtml] = "page.title | truncatetext:70" >  </a></h2>
     <a id="url"> {{page.url}} </a>

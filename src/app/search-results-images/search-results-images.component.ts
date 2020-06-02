@@ -14,6 +14,7 @@ export class SearchResultsImagesComponent implements OnInit {
   searchResultsImages: Image[] = []
   query: string;
   userLocation: string;
+  noResultsFound: boolean;
 
   public maxSize: number = 7;
   public directionLinks: boolean = true;
@@ -66,7 +67,8 @@ export class SearchResultsImagesComponent implements OnInit {
   imagesRequest(){
     this.searchResultsImages = [];
     this.paginationConfig.totalItems = 0;
-
+    this.noResultsFound = false;
+    
     this.route.queryParams.subscribe(
       params => this.query = params['query']);
       this.query = this.route.snapshot.queryParamMap.get('query');
@@ -77,7 +79,9 @@ export class SearchResultsImagesComponent implements OnInit {
 
     this.searchService.getImages(this.query, this.userLocation,
               this.paginationConfig.currentPage.toString()).subscribe(
-      list =>  {this.searchResultsImages = list.images,  this.paginationConfig.totalItems = list.size} 
+      list =>  {this.searchResultsImages = list !== null ? list.images: [], 
+                this.paginationConfig.totalItems = list !== null ? list.size : 0 ,
+                this.noResultsFound = list===null}
     );
   }
   

@@ -1,4 +1,5 @@
 <!-- Page Content -->
+<p id="no-results" *ngIf="noResultsFound">No results found for: <strong>"{{query}}"</strong></p>
 <div class="container-fluid page-top">
     <div class="row">
         <div class="col-lg-3 col-md-4 col-xs-6 thumb" *ngFor="let image of searchResultsImages | paginate: paginationConfig; let i = index">

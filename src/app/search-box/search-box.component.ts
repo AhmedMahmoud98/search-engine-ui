@@ -22,7 +22,7 @@ export class SearchBoxComponent implements OnInit {
 
   ngOnInit(): void {
      this.route.queryParams.subscribe(
-       params =>{ this.searchText = params['query']
+       params => { this.searchText = params['query']
       });
       
     this.router.events.subscribe((event) => {

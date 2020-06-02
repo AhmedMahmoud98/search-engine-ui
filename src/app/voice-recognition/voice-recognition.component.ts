@@ -41,7 +41,7 @@ export class VoiceRecognitionComponent implements OnInit {
         this.ngZone.run(() => this.voiceActiveSectionError = true);
         annyang.abort();
       }
-      this.router.navigate(['/search/all'], {queryParams: { 'query':  this.voiceText} });
+      this.ngZone.run(() => this.router.navigate(['/search/all'], {queryParams: { 'query':  this.voiceText , 'country': 'EG'} }));
     });
     annyang.addCallback('result', (userSaid) => {
       this.ngZone.run(() => this.voiceActiveSectionError = false);

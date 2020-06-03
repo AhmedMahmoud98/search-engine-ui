@@ -15,6 +15,7 @@ How to Run:
 - Run the following command to build the project:
   ng serve
 
+You can find the search-engine project repo here: https://github.com/AhmedMahmoud98/search-engine
 ------------------ Run search-engine-API -------------------
 1) install Maven using Eclipse
 - Open Eclipse IDE
@@ -27,7 +28,7 @@ How to Run:
 - Open Eclipse IDE
 - Click file -> Import
 - Choose Maven -> Existing Maven Project
-- Choose The Project Folder "Search-Engine-API"
+- Choose The Project Folder "Search-Engine-API" (Eclipse will Download some dependencies at first)
 
 3) Run The project from Class "SearchEngineApiApplication"
 

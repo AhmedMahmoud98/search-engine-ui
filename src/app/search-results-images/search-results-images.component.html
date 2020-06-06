@@ -3,8 +3,8 @@
 <div class="container-fluid page-top">
     <div class="row">
         <div class="col-lg-3 col-md-4 col-xs-6 thumb" *ngFor="let image of searchResultsImages | paginate: paginationConfig; let i = index">
-            <a href="{{image.siteUrl}}" (click)="visitedURL($event)">
-                <img src= "{{image.imageUrl}}"
+            <a id ="{{image.siteUrl}}" href="{{image.siteUrl}}" (click)="visitedURL($event)">
+                <img src= "{{image.imageUrl}}" 
                     class="zoom img-fluid " id = "{{i}}" alt=""
                     (mouseenter) ="imageZoomIn($event)"  (mouseleave) ="imageZoomOut($event)">
             </a>

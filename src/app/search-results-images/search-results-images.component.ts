@@ -87,7 +87,7 @@ export class SearchResultsImagesComponent implements OnInit {
   
   visitedURL(event) 
   {
-    var elementId = (event.target as Element).id;
+    var elementId = (event.target as Element).parentElement.id;
     var url = document.getElementById(elementId).getAttribute("href");
     this.visitedUrlRequest(url);
   }
